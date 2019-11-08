@@ -20,6 +20,8 @@
                     name: Running Test One
                     command: |
                       psql -h localhost -p 5432 -U postgres -c "create database test"
+                      psql -h localhost -p 5432 -U postgres -c "CREATE TABLE one (foo VARCHAR(50));"
+
         two:
             docker:
                 - image: circleci/ruby:2.4
@@ -40,7 +42,8 @@
                     name: Running Test Two
                     command: |
                       psql -h localhost -p 5432 -U postgres -c "create database test"
-    
+                      psql -h localhost -p 5432 -U postgres -c "CREATE TABLE two (foo VARCHAR(50));"
+   
     workflows:
         version: 2
         build:
