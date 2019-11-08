@@ -4,12 +4,12 @@
             docker:
                 - image: circleci/postgres:9.6-alpine-ram
             steps:
-                - run: sleep(60) && echo 2
+                - run: echo 1
         two:
             docker:
                 - image: circleci/ruby:2.4
             steps:
-                - run: sleep(60) && echo 2
+                - run: echo 2
     
     workflows:
         version: 2
