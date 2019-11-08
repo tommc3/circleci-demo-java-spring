@@ -21,8 +21,8 @@
                     command: |
                       psql -h localhost -p 5432 -U postgres -c "create database test"
                       psql -h localhost -p 5432 -U postgres -c "CREATE TABLE one (foo VARCHAR(50));"
-                      psql -h localhost -p 5432 -U postgres -c "insert into foo values ('one');"
-                      psql -h localhost -p 5432 -U postgres -c "select * from foo;"
+                      psql -h localhost -p 5432 -U postgres -c "insert into one values ('one');"
+                      psql -h localhost -p 5432 -U postgres -c "select * from one;"
 
         two:
             docker:
@@ -45,8 +45,8 @@
                     command: |
                       psql -h localhost -p 5432 -U postgres -c "create database test"
                       psql -h localhost -p 5432 -U postgres -c "CREATE TABLE two (foo VARCHAR(50));"
-                      psql -h localhost -p 5432 -U postgres -c "insert into foo values ('two');"
-                      psql -h localhost -p 5432 -U postgres -c "select * from foo;"
+                      psql -h localhost -p 5432 -U postgres -c "insert into two values ('two');"
+                      psql -h localhost -p 5432 -U postgres -c "select * from two;"
    
     workflows:
         version: 2
