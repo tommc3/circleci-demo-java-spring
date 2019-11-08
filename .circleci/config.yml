@@ -4,27 +4,27 @@
           docker:
                 - image: circleci/ruby:2.4
           steps:
-            - echo 1
+            - run: sleep(60) && echo 1
         two:
           docker:
                 - image: circleci/ruby:2.4
           steps:
-            - echo 2
+            - run: sleep(60) && echo 2
         three:
           docker:
                 - image: circleci/ruby:2.4
           steps:
-            - echo 3
+            - run: sleep(60) && echo 3
         four:
           docker:
                 - image: circleci/ruby:2.4
           steps:
-            - echo 4
+            - run: sleep(60) && echo 4
         five:
           docker:
                 - image: circleci/ruby:2.4
           steps:
-            - echo 5
+            - run: sleep(60) && echo 5
     
     workflows:
         version: 2
