@@ -4,7 +4,7 @@
             docker:
                 - image: circleci/postgres:9.6-alpine-ram
             steps:
-                - run: echo 1
+                - run: psql -h localhost -p 5432 -d circleci -c 'CREATE ROLE mnr'
         two:
             docker:
                 - image: circleci/ruby:2.4
