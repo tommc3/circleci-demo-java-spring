@@ -5,11 +5,17 @@
                 - image: circleci/ruby:2.4
                 - image: circleci/postgres:9.6-alpine-ram
                   environment:
-                    POSTGRES_DB: circleci
-                    POSTGRES_USER: circleci
-                    POSTGRES_PASSWORD: circleci
+                    POSTGRES_USER: postgres
             steps:
-                - run: psql -h localhost -p 5432 -d circleci -c 'CREATE ROLE mnr'
+                - run:
+                    name: Installing Dependencies
+                    command: |
+                      sudo apt-get install postgresql-client
+
+                - run:
+                    name: Running Test
+                    command: |
+                      psql -h localhost -p 5432 -U postgres -c "create database test"
         two:
             docker:
                 - image: circleci/ruby:2.4
