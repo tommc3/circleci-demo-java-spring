@@ -1,19 +1,15 @@
     version: 2
     jobs:
         one:
-          docker:
+            docker:
                 - image: circleci/postgres:9.6-alpine-ram
-          steps:
-              run:
-                  command: |
-                      set +e
-                      set +o pipefail
-                      psql -h localhost -p 5432 -d circleci -c 'CREATE ROLE mnr'
+            steps:
+                - run: sleep(60) && echo 2
         two:
-          docker:
+            docker:
                 - image: circleci/ruby:2.4
-          steps:
-            - run: sleep(60) && echo 2
+            steps:
+                - run: sleep(60) && echo 2
     
     workflows:
         version: 2
